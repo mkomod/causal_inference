@@ -1,0 +1,61 @@
+---
+title: "Causal Inference"
+author: Oscar Cilvio, Lucile Ter-Minassian, Michael Komodromos
+output: beamer_presentation
+bibliography: refs.bib
+---
+
+# Data
+
+ - What data did we use
+ - Describe the properties
+
+# Methods
+
+ - Which method(s) did we use
+ - Doubly robust or not?
+ - Non-parametric
+ - What are we estimating?
+
+# Metrics
+
+ - How did we evaluate the performance of our method
+ - l1 / l2  error?
+ - Coverage?
+
+# Results
+
+ - How did the method we use perform on the dataset
+ - How does this compare to other methods (i.e. regression)
+
+
+# Summary
+
+ - Why is this method good?
+ - Why is it bad?
+ - What should you look out for?
+
+# Questions?
+
+# Some plots
+
+```{r, echo=F}
+plot(1)
+```
+
+# Some tables
+
+```{r, echo=F}
+knitr::kable(table(runif(100) > 0.5))
+```
+
+# A reference
+
+
+@R-base
+
+With paraens [@R-base]
+
+# References
+
+
