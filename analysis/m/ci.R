@@ -107,6 +107,7 @@ RES <- c(RES, f3.att)
 models <- c("Linear", "Rand F", method, "BART")
 cat(rep("-", 40), "\n" , rep(" ", 15), "Est. ATT\n", rep("-", 40),
     sprintf("\n%s:\t %.3f", models, RES), "\n",
+    rep("-", 14), sprintf("\nATT:\t %.3f\n", satt.1),
     rep("-", 40), "\n" , rep(" ", 12), "Est. ATT - ATT\n", rep("-", 40),
     sprintf("\n%s:\t %.3f", models , RES - satt.1), "\n",
     sep="")
