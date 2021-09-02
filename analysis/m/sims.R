@@ -20,8 +20,8 @@ settings <- expand.grid(p=params, s=1:100)
 # ----------------------------------------
 # Experiments
 # ----------------------------------------
-results <- matrix(nrow=0, ncol=3)
-colnames(results) <- c("linreg.att", "linreg.cov", "lasso.att")
+results <- matrix(nrow=0, ncol=5)
+colnames(results) <- c("att", "atc", "linreg.att", "linreg.cov", "lasso.att")
 
 for (i in 1:nrow(settings)) {
     p <- settings[i, 1]
@@ -65,12 +65,12 @@ for (i in 1:nrow(settings)) {
 	mean(d.1$y - predict(lasso, s=lasso.lmin, newx=mm.1))
     }, error = function(e) NA)
 
-
+    
     # --------------------
     # Pkg results
     # --------------------
     results <- rbind(results, 
-	c(att=mean(d.1$y.1 - d.1$y.0), atc=mean(d.0$y.1 - d.0$y.0), 
+	c(att=mean(d.1$y.1 - d.1$y.0), atc=mean(d.0$y.1 - d.0$y.0),
 	  linreg.att=linreg.att, linreg.cov=linreg.cov, lasso.att=lasso.att))
 }
 
