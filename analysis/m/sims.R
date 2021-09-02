@@ -69,17 +69,16 @@ for (i in 1:nrow(settings)) {
     # --------------------
     # Pkg results
     # --------------------
-    results <- rbind(results, c(linreg.att=linreg.att, linreg.cov=linreg.cov,
-	  lasso.att=lasso.att))
-
+    results <- rbind(results, 
+	att=mean(d.1$y.1 - d.1$y.0), atc=mean(d.0$y.1 - d.0$y.0), 
+	c(linreg.att=linreg.att, linreg.cov=linreg.cov, lasso.att=lasso.att))
 }
 
 
 # ----------------------------------------
 # Pkg results
 # ----------------------------------------
-results <- cbind(settings, att=mean(d.1$y.1 - d.1$y.0), 
-      atc=mean(d.0$y.1 - d.0$y.0), results)
+results <- cbind(settings, results)
 
 save(results, file="./results.RData")
 
