@@ -49,7 +49,7 @@ for (p in unique(results$p)) {
 	mean(results$lasso.err[results$p == p])))
 }
 
-# fail to reject null - i.e. linear reg better
+# reject null - i.e. linear reg better
 t.test(results.noNa$linreg.err[results.noNa$p == 1],
        results.noNa$lasso.err[ results.noNa$p == 1], paired=T)
 
