@@ -27,9 +27,7 @@ for (i in 1:nrow(settings)) {
     p <- settings[i, 1]
     s <- settings[i, 2]
 
-    d <- dgp_2016(input_2016, parameters=p, random.seed=s) |> 
-	as.data.frame()
-
+    d <- as.data.frame(dgp_2016(input_2016, parameters=p, random.seed=s))
     x <- dgp_2016(input_2016, parameters=p, random.seed=s, extraInfo=TRUE)$x
     
     # create datasets for control (0) and treated (1)
