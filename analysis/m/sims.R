@@ -70,8 +70,8 @@ for (i in 1:nrow(settings)) {
     # Pkg results
     # --------------------
     results <- rbind(results, 
-	att=mean(d.1$y.1 - d.1$y.0), atc=mean(d.0$y.1 - d.0$y.0), 
-	c(linreg.att=linreg.att, linreg.cov=linreg.cov, lasso.att=lasso.att))
+	c(att=mean(d.1$y.1 - d.1$y.0), atc=mean(d.0$y.1 - d.0$y.0), 
+	  linreg.att=linreg.att, linreg.cov=linreg.cov, lasso.att=lasso.att))
 }
 
 
