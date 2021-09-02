@@ -1,6 +1,8 @@
 #
 # Processing of simulation results
 #
+library(ggplot2)
+
 load("results.RData")
 
 # Settings Desc
