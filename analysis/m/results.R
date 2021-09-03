@@ -28,8 +28,8 @@ mabe <- function(x, y) mean(abs(x - y), na.rm=T)
 # ----------------------------------------
 # RMSE and MABE
 # ----------------------------------------
-rmse(results$att, results$lasso.att)
 rmse(results$att, results$linreg.att)
+rmse(results$att, results$lasso.att)
 mabe(results$att, results$lasso.att)
 mabe(results$att, results$linreg.att)
 
@@ -68,10 +68,32 @@ t.test(results.noNa$linreg.err[results.noNa$p == 1],
        results.noNa$lasso.err[ results.noNa$p == 1], paired=T)
 
 
+# RMSE
+for (i in unique(results$p)) {
+    with(results,
+    cat(sprintf("%s\t\t%.3f\t(%.3f)\t\t%.3f\t(%.3f)\n", i, 
+    	rmse(att[p == i], linreg.att[p == i]),
+    	sd(linreg.err[p == i], na.rm=T),
+    	rmse(att[p == i], lasso.att[p == i]),
+    	sd(lasso.err[p == i], na.rm=T)))
+    )
+}
+
+round(rmse(results$att, results$linreg.att), 3)
+sd(results$linreg.err, na.rm=T)
+round(rmse(results$att, results$lasso.att), 3)
+sd(results$lasso.err, na.rm=T)
+
 # ----------------------------------------
 # Coverage
 # ----------------------------------------
 for (p in unique(results$p)) {
-    cat(sprintf("%s\t\t%.3f\n", p, 
-	mean(results$linreg.cov[results$p==p], na.rm=T)))
+    cat(sprintf("%s\t\t%.3f\t(%.3f)\n", p, 
+	mean(results$linreg.cov[results$p==p], na.rm=T),
+	sd(results$linreg.cov[results$p==p], na.rm=T))
+    )
 }
+
+
+mean(results$linreg.cov, na.rm=T)
+sd(results$linreg.cov, na.rm=T)
